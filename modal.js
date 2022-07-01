@@ -21,3 +21,11 @@ function launchModal() {
 }
 
 // Mise en place de la fermeture de la modal
+
+const modalBtnClose = document.querySelectorAll(".close");
+
+modalBtnClose.forEach((btn) => btn.addEventListener("click", closeModal));
+
+function closeModal() {
+    modalbg.style.display = "none";
+}

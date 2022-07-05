@@ -583,3 +583,19 @@ footer {
         opacity: 1;
     }
 }
+
+.valid-or-error{
+    margin-top: 10px;
+}
+
+.valid{
+    color: rgb(0, 204, 0);
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.error{
+    color: rgb(204, 0, 0);
+    font-size: 15px;
+    font-weight: 400;
+}

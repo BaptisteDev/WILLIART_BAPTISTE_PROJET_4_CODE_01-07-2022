@@ -128,6 +128,9 @@ let birthdate = document.querySelector('#birthdate');
 // Input avec l'id = concours (concours)
 let concours = document.querySelector('#quantity');
 
+// Input avec l'id = checkbox1 (CGU)
+let cgu = document.querySelector('#checkbox1');
+
 // On récupére notre button submit 
 let submit = document.querySelector('#btn-submit');
 
@@ -143,15 +146,13 @@ function veriForm() {
     if (first.value === "" || first.value.length < 2 || checkRegexNomPrenom.test(first.value) === false) {
         Affichage(first);
         classAffichage.classList.add("error");
-        classAffichage.innerHTML = 'Minimum 2 caractéres !';
+        classAffichage.innerHTML = 'Veuillez entrer 2 caractères ou plus';
         return false;
     }
     if (last.value === "" || last.value.length <= 2 || checkRegexNomPrenom.test(first.value) === false) {
-        classAffichage.classList.remove("error");
-        classAffichage.innerHTML = '';
         Affichage(last);
         classAffichage.classList.add("error");
-        classAffichage.innerHTML = 'Minimum 2 caractéres !';
+        classAffichage.innerHTML = 'Veuillez entrer 2 caractères ou plus';
         return false;
     }
     if (email.value === "" || checkRegexMail.test(email.value) === false) {
@@ -163,15 +164,22 @@ function veriForm() {
     if (birthdate.value === "" || checkRegexBirthdate.test(birthdate.value) === false) {
         Affichage(birthdate);
         classAffichage.classList.add("error");
-        classAffichage.innerHTML = 'Verifier votre la date de naissance !';
+        classAffichage.innerHTML = 'Vous devez entrer votre date de naissance.';
         return false;
     }
     if (concours.value === "" || concours.value < 0) {
         Affichage(concours);
         classAffichage.classList.add("error");
-        classAffichage.innerHTML = 'Nombre incorrect';
+        classAffichage.innerHTML = 'Veuillez entrer 1 nombres';
         return false;
     }
+    if (cgu.checked != true) {
+        let classAffichage = document.querySelector('#cgu-error');
+        classAffichage.classList.add("error");
+        classAffichage.innerHTML = 'Veuillez accepter les CGU';
+        return false;
+    }
+    alert('Merci ! Votre réservation a été reçue."')
     return true;
 }
 

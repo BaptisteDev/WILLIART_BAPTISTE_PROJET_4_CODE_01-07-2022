@@ -138,14 +138,14 @@ function deleteMessage(para) {
 
                 // On verifie avec notre variable regex si oui alors on valide
             } else if (para.id === 'quantity') {
-                if (para.value >= 0 && para.value <= 1000) {
+                if (para.value >= 0 && para.value <= 99) {
                     child.innerHTML = '';
                     para.style.border = '2px green solid'
                 } else {
                     // On retourne une erreur si notre variable de match pas
                     child.classList.add("error");
                     para.style.border = '2px red solid';
-                    child.innerHTML = 'Entrer une valeur superieur ou égales à 0 et inferieur ou égales à 1000';
+                    child.innerHTML = 'Entrer une valeur superieur ou égales à 0 et inferieur ou égales à 99';
                 }
                 // On verifie avec notre variable regex si oui alors on valide
             } else if (para.id === 'birthdate') {

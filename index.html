@@ -49,12 +49,11 @@
                 je m'inscris
             </button>
         </div>
-
         <div class="bground ">
             <div class="content">
                 <span id="btn-close" class="close"></span>
                 <div id="modal" class="modal-body">
-                    <form name="reserve" method="get" onsubmit="return affichageValidation()">
+                    <form name="reserve" action="affichage.html" method="get" onsubmit="return veriForm()">
                         <div class="formData ">
                             <label for="first">Prénom</label><br>
                             <input class="text-control" type="text" id="first" name="first" /><br>
@@ -116,7 +115,7 @@
                                 J'ai lu et accepté les conditions d'utilisation.
                             </label>
                             <div id="cgu-error"></div>
-                            <br>
+                   
                             <input class="checkbox-input" type="checkbox" id="checkbox2" />
                             <label class="checkbox2-label" for="checkbox2">
                                 <span class="checkbox-icon"></span>
@@ -125,8 +124,7 @@
                             <br>
 
                         </div>
-                        <input id="btn-submit" class="btn-submit" type="submit" class="button" value="C'est parti"
-                            onclick="veriForm()" />
+                        <input id="btn-submit" class="btn-submit" type="submit" class="button" value="C'est parti" />
                     </form>
                 </div>
             </div>

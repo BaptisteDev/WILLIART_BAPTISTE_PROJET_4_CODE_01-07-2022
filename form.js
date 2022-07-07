@@ -150,6 +150,7 @@ function veriForm() {
         classAffichage.innerHTML = 'Veuillez entrer 2 caractères ou plus';
         return false;
     }
+    // On vérifie si il y a des erreur si oui return les erreurs
     if (last.value === "" || last.value.length <= 2 || checkRegexNomPrenom.test(first.value) === false) {
         Affichage(last);
         last.style.border = '1px red solid'
@@ -157,34 +158,37 @@ function veriForm() {
         classAffichage.innerHTML = 'Veuillez entrer 2 caractères ou plus';
         return false;
     }
+    // On vérifie si il y a des erreur si oui return les erreurs
     if (email.value === "" || checkRegexMail.test(email.value) === false) {
         Affichage(email);
         email.style.border = '1px red solid'
         classAffichage.classList.add("error");
-        classAffichage.innerHTML = 'Verifier votre email !';
+        classAffichage.innerHTML = 'Veuillez entrer un email valide !';
         return false;
     }
+    // On vérifie si il y a des erreur si oui return les erreurs
     if (birthdate.value === "" || checkRegexBirthdate.test(birthdate.value) === false) {
         Affichage(birthdate);
         birthdate.style.border = '1px red solid'
         classAffichage.classList.add("error");
-        classAffichage.innerHTML = 'Vous devez entrer votre date de naissance.';
+        classAffichage.innerHTML = 'Veuillez entrer une date de naissance valide !';
         return false;
     }
+    // On vérifie si il y a des erreur si oui return les erreurs
     if (concours.value === "" || concours.value < 0) {
         Affichage(concours);
         birthdate.style.border = '1px red solid'
         classAffichage.classList.add("error");
-        classAffichage.innerHTML = 'Veuillez entrer 1 nombres';
+        classAffichage.innerHTML = 'Veuillez entrer un nombres';
         return false;
     }
+    // On vérifie si il y a des erreur si oui return les erreurs
     if (cgu.checked != true) {
         let classAffichage = document.querySelector('#cgu-error');
         classAffichage.classList.add("error");
         classAffichage.innerHTML = 'Veuillez accepter les CGU';
         return false;
     }
-
     return true;
 }
 
@@ -193,11 +197,4 @@ function Affichage(item) {
     let child = parent.children;
     classAffichage = child[child.length - 1];
     return classAffichage;
-}
-
-function affichageValidation() {
-    let affichage = document.querySelector('#total-valid');
-    let modal = document.querySelector('#modal');
-    modal.style.display = 'none'
-    affichage.innerHTML = "Ton message";
 }

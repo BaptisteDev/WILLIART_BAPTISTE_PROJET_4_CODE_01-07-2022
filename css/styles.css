@@ -625,9 +625,6 @@ footer {
         flex-direction: row;
         justify-content: space-between;
     }
-    .main-navbar {
-        margin-top: 0px;
-    }
     .main-navbar a {
         font-size: 17px;
     }
@@ -701,5 +698,16 @@ footer {
 }
 
 .checkbox2-label {
+    cursor: pointer;
+}
+
+
+#btn-back{
+    text-decoration: none;
+    font-size: 86%;
+    background: #fe142f;
+    color: #fff;
+    padding: 11px 53px;
+    border-radius: 1rem;
     cursor: pointer;
 }

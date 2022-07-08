@@ -106,7 +106,7 @@ function deleteMessage(para) {
     let parent = para.parentNode;
     let child = parent.children;
     child = child[child.length - 1];
-    para.addEventListener('change', () => {
+    para.addEventListener('blur', () => {
         // On récuppere la valeur de notre input
         if (para.value != "") {
             // On verifie l'identité de notre input
@@ -167,8 +167,6 @@ function deleteMessage(para) {
 
         }
     })
-
-
 }
 
 // Et pour terminer on initialise notre fonction avec diffrent paramettre

@@ -25,7 +25,7 @@ let submit = document.querySelector('#btn-submit');
 
 function veriForm() {
     // Regex pour verifier notre input nom et prenom
-    let checkRegexNomPrenom = new RegExp(/([A-Za-z]+)/);
+    let checkRegexNomPrenom = new RegExp(/^[a-zA-Z.+-]*(?:[a-zA-Z][a-zA-Z.+-]*){2,}$/);
     let checkRegexMail = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
     let checkRegexBirthdate = new RegExp(/^\d{4}[-]\d{1,2}[-]\d{1,2}$/);
 
@@ -96,7 +96,7 @@ function deleteMessage(para) {
         const regexMail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
         checkRegex = new RegExp(regexMail);
     } else if (para.id === 'first' || para.id === 'last') {
-        const regexNomPrenom = /([A-Za-z]+)/;
+        const regexNomPrenom = /^[a-zA-Z.+-]*(?:[a-zA-Z][a-zA-Z.+-]*){2,}$/;
         checkRegex = new RegExp(regexNomPrenom);
     } else if (para.id === 'birthdate') {
         const regexBirthdate = /^\d{4}[-]\d{1,2}[-]\d{1,2}$/;
@@ -150,8 +150,23 @@ function deleteMessage(para) {
                 // On verifie avec notre variable regex si oui alors on valide
             } else if (para.id === 'birthdate') {
                 if (checkRegex.test(para.value)) {
-                    child.innerHTML = '';
-                    para.style.border = '2px green solid'
+                    // On récupéres ma date compléte d'aujourd'hui
+                    dateNow = new Date();
+                    // On récupéres l'année grâce à une fonction de js
+                    dateNow = dateNow.getFullYear();
+                    // Et surtout on split notre date de naissance pour récuppérer notre année entrer dans l'input 
+                    verifYears = birthdate.value.split('-')[0];
+                    if (verifYears >= 1930 && verifYears <= dateNow-5) {
+                        child.innerHTML = '';
+         
+                        para.style.border = '2px green solid'
+                    }
+                    else {
+                        // On retourne une erreur si notre variable de match pas
+                        child.classList.add("error");
+                        para.style.border = '2px red solid';
+                        child.innerHTML = 'Date non valide ou trop jeune pour s\'inscrire';
+                    }
                 } else {
                     // On retourne une erreur si notre variable de match pas
                     child.classList.add("error");

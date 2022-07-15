@@ -665,13 +665,14 @@ footer {
     width: 500px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     background-color: #232323;
-    height: 350px;
+    height: 600px;
     padding: 30px;
     box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
+    padding-top: 230px;
 }
 
 .opa {
@@ -710,4 +711,15 @@ footer {
     padding: 11px 53px;
     border-radius: 1rem;
     cursor: pointer;
+    margin-top: 200px;
+}
+
+.crosse{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.crosse img{
+    margin-top: -422px;
 }
